@@ -63,7 +63,7 @@
 		</dl> -->
 </div>
 
-	<div id="cardinfo" class="container-fluid content">
+	<div >
 
 		<a href="https://images.io.gov.mo/cn/about/calendar2021.ics">ical</a>
 
@@ -91,7 +91,6 @@
 			language: (navigator.browserLanguage || navigator.language).toLowerCase()
 		}, con = document.getElementById("container");
 
-		function checkBrowser(event){
 			if (browser.versions.wx) {
 				con = document.getElementById("container");
 				con.style.cssText = "display:block";
@@ -102,7 +101,7 @@
 				document.body.style.backgroundColor = '#ffffff';
 				event.preventDefault();
 			}
-		}
+		
 
 	</script>
 
