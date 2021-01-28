@@ -17,7 +17,13 @@
 
 function onScanSuccess(qrMessage) {
 	// handle the scanned code as you like
-alert(`QR matched = ${qrMessage}`);
+
+	if(qrMessage.includes('gov.mo')){
+		window.location.href = qrMessage;
+	}else{
+		alert(`QR matched = ${qrMessage}`);
+	}
+
 }
 
 function onScanFailure(error) {
