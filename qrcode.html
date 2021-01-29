@@ -44,7 +44,11 @@ function onScanFailure(error) {
 
 
 var scanner = new Html5Qrcode("scanarea");
-var qrCodeSuccessCallback = message => { window.location.href = message; }
+var qrCodeSuccessCallback = message => { 
+	$('body').prepend(message); 
+	scanner.stop();
+};
+
 var config = { fps: 10, qrbox: 250 };
 
 Html5Qrcode.getCameras().then(devices => {
