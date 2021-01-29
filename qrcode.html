@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h1>This isss ass 20210129 ddddddddddddddd</h1>
+<h1>This isss ass 20210129 cccccccccccccccccc</h1>
 
 <div id="scanarea" width="600px"></div>
 
@@ -65,7 +65,7 @@ Html5Qrcode.getCameras().then(devices => {
 	//$('body').append(cameraId);
   }
   $('body').append('bbbb');
-  scanner.start({  deviceId: { exact:  devices[0].id}  }, config, qrCodeSuccessCallback);
+  scanner.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
   $('body').append('cccc');
 
 }).catch(err => {
