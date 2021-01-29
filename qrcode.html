@@ -45,6 +45,7 @@ Html5Qrcode.getCameras().then(devices => {
    */
   $('body').append('aaa');
   $('body').append(devices);
+  console.log(devices);
   if (devices && devices.length) {
     var cameraId = devices[0].id;
     // .. use this to start scanning.
