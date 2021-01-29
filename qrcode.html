@@ -12,6 +12,8 @@
 </head>
 <body>
 
+	<input type="button" value="Resume" onclick="resumeScan()">
+
 <h1>This isss ass 20210129 cccccccccccccccccc</h1>
 
 <div id="scanarea" width="600px"></div>
@@ -76,6 +78,9 @@ Html5Qrcode.getCameras().then(devices => {
 	alert(err);
 });
 
+function resumeScan(){
+	scanner.start();
+};
 
 // If you want to prefer back camera
 
