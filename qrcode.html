@@ -14,7 +14,7 @@
 
 	<input type="button" value="Resume" onclick="resumeScan()">
 
-<h1>This isss ass 20210129 eeeeeeeeee</h1>
+<h1>This isss ass 20210129 aaaaaaaaaaa</h1>
 
 <div id="scanarea" width="600px"></div>
 
@@ -79,7 +79,7 @@ Html5Qrcode.getCameras().then(devices => {
 });
 
 function resumeScan(){
-	scanner.start();
+	scanner.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
 };
 
 // If you want to prefer back camera
