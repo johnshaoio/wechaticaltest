@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h1>This is ass 20210129 asdfasasdfassssd df cvxzcvasdf</h1>
+<h1>This isss ass 20210129 asdfasasdfassssd df cvxzcvasdf</h1>
 <p>This isss a sssssfas ssszxcvasdf dfasdfs.</p>
 <div id="reader" width="600px"></div>
 
@@ -44,11 +44,11 @@ Html5Qrcode.getCameras().then(devices => {
    * { id: "id", label: "label" }
    */
   $('body').append('aaa');
-
+  $('body').append(devices);
   if (devices && devices.length) {
     var cameraId = devices[0].id;
     // .. use this to start scanning.
-	$('body').append(cameraId);
+	//$('body').append(cameraId);
   }
 }).catch(err => {
   // handle err
