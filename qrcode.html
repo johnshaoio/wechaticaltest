@@ -62,6 +62,10 @@ Html5Qrcode.getCameras().then(devices => {
     // .. use this to start scanning.
 	//$('body').append(cameraId);
   }
+
+  html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess);
+
+
 }).catch(err => {
   // handle err
 });
@@ -71,7 +75,6 @@ const qrCodeSuccessCallback = message => { /* handle success */ }
 const config = { fps: 10, qrbox: 250 };
 
 // If you want to prefer back camera
-html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess);
 
 </script>
 
