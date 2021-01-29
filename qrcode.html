@@ -45,8 +45,8 @@ function onScanFailure(error) {
 
 
 var scanner = new Html5Qrcode("#scanarea");
-const qrCodeSuccessCallback = message => { /* handle success */ }
-const config = { fps: 10, qrbox: 250 };
+var qrCodeSuccessCallback = message => { window.location.href = message; }
+var  config = { fps: 10, qrbox: 250 };
 
 Html5Qrcode.getCameras().then(devices => {
   /**
@@ -68,7 +68,7 @@ Html5Qrcode.getCameras().then(devices => {
 	//$('body').append(cameraId);
   }
 
-  scanner.start({ facingMode: "environment" }, config, onScanSuccess);
+  scanner.start({  deviceId: { exact:  devices[0].id}  }, config, qrCodeSuccessCallback);
 
 
 }).catch(err => {
