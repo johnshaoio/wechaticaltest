@@ -12,14 +12,12 @@
 </head>
 <body>
 
-	<input type="button" value="Resume" onclick="resumeScan()">
-
 <h1>Test 20210201-00001</h1>
 <div id="currentCheckin">現有<span id="checkined_number">0</span>人 checkin, 最新已check in為:<span id="checkin_name">?</span></div>
+<input type="button" value="Resume" onclick="resumeScan()" style="width: 20%; height:30px;">
 <div id="scanarea" width="600px"></div>
 
 <div id="checkined"></div>
-
 
 <div id="reader" width="600px"></div>
 
@@ -33,11 +31,6 @@ function onScanFailure(error) {
 	// handle scan failure, usually better to ignore and keep scanning
 	console.warn(`QR error = ${error}`);
 }
-
-// let html5QrcodeScanner = new Html5QrcodeScanner(
-// 	"reader", { fps: 10, qrbox: 250 }, /* verbose= */ true);
-// html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-
 
 var scanner = new Html5Qrcode("scanarea");
 var qrCodeSuccessCallback = message => {
@@ -71,19 +64,18 @@ Html5Qrcode.getCameras().then(devices => {
    */
   $('body').append('aaa');
 
-	devices.forEach(device => {
-		$('body').prepend(device.id+'<br />');
-		$('body').prepend(device.label+'<br />');
-	});
+	// devices.forEach(device => {
+	// 	$('body').prepend(device.id+'<br />');
+	// 	$('body').prepend(device.label+'<br />');
+	// });
 
-  if (devices && devices.length) {
-    var cameraId = devices[0].id;
-    // .. use this to start scanning.
-	//$('body').append(cameraId);
-  }
-  $('body').append('bbbb');
+//   if (devices && devices.length) {
+//     var cameraId = devices[0].id;
+//     // .. use this to start scanning.
+// 	//$('body').append(cameraId);
+//   }
+
   scanner.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
-  $('body').append('cccc');
 
 }).catch(err => {
 	alert(err);
