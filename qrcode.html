@@ -24,6 +24,22 @@
 
 <script>
 
+const axios = require('axios');
+
+// Make a request for a user with a given ID
+axios.get('/wechaticaltest/data/a.json')
+  .then(function (response) {
+    // handle success
+    alert(response.data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+
 function onScanSuccess(qrMessage) {
 	// handle the scanned code as you like
 
