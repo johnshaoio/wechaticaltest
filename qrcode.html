@@ -27,6 +27,7 @@
 const axios = require('axios');
 
 // Make a request for a user with a given ID
+function aaa(){
 axios.get('/wechaticaltest/data/a.json')
   .then(function (response) {
     // handle success
@@ -39,6 +40,9 @@ axios.get('/wechaticaltest/data/a.json')
   .then(function () {
     // always executed
   });
+}
+
+aaa();
 
 function onScanSuccess(qrMessage) {
 	// handle the scanned code as you like
