@@ -14,9 +14,12 @@
 
 	<input type="button" value="Resume" onclick="resumeScan()">
 
-<h1>This isss ass 20210201 bbbbbbb</h1>
-
+<h1>Test 20210201-00001</h1>
+<div id="currentCheckin">現有<span id="checkined_number">0</span>人 checkin, 最新已check in為:<span id="checkin_name">?</span></div>
 <div id="scanarea" width="600px"></div>
+
+<div id="checkined"></div>
+
 
 <div id="reader" width="600px"></div>
 
@@ -24,35 +27,7 @@
 
 <script>
 
-
-// Make a request for a user with a given ID
-function aaa(){
-axios.get('/wechaticaltest/data/a.json')
-  .then(function (response) {
-    // handle success
-    alert(response.data);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });
-}
-
-aaa();
-
-function onScanSuccess(qrMessage) {
-	// handle the scanned code as you like
-
-	if(qrMessage.includes('gov.mo')){
-		window.location.href = qrMessage;
-	}else{
-		alert(`QR matched = ${qrMessage}`);
-	}
-
-}
+var checkined_number = 0;
 
 function onScanFailure(error) {
 	// handle scan failure, usually better to ignore and keep scanning
@@ -65,8 +40,25 @@ function onScanFailure(error) {
 
 
 var scanner = new Html5Qrcode("scanarea");
-var qrCodeSuccessCallback = message => { 
-	$('body').prepend(message); 
+var qrCodeSuccessCallback = message => {
+
+
+	axios.get(message)
+	.then(function (response) {
+
+		checkined_number++;
+		$('#checkined_number').text(checkined_number); 
+		$('#checkin_name').text(response.data.name); 
+
+	})
+	.catch(function (error) {
+		// handle error
+		alert(error);
+	})
+	.then(function () {
+		// always executed
+	});
+
 	scanner.stop();
 };
 
